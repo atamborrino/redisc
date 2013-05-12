@@ -46,18 +46,18 @@ local Ivy repository).
 For usage in combination with Play2.0, you have to use a Play2.0 version compiled against Akka 2.2, until Akka 2.2 integration is pushed into mainstream, you can find a version at: https://github.com/gideondk/Play2.0.
 
 ## API
-Refer to the Redisc class in the Scala doc located here. 
+Refer to the Redisc class in the [Scala doc](http://atamborrino.github.io/redisc/target/scala-2.10/api/#redisc.api.Redisc). 
 Note that Redisc API always follows the [Redis command API](http://redis.io/commands) (for example, for every Redis command that results in a nil response (a NULL bulk reply), the resulting future will always be filled with a RedisNull exception).
-Therefore you can know what the resulting Future of a command can contain by looking at the Redis command API itself.
+Therefore you can know what the resulting Future of a command can contain by looking at the Redis command API.
 
 ## Status
-You can see what Redis commands and functionalities are implemented in the Scala doc.
+You can see what Redis commands and functionalities are implemented in the Scala doc](http://atamborrino.github.io/redisc/target/scala-2.10/api/#redisc.api.Redisc).
 
 ###TODO:
 *   More Redis commands
+*   Pipelining
 *   Master-slave replication support
 *   Publish-subscribe
-*   Pipelining
 
 The code is modular and quite simple, so contributors and contributions are very welcomed!
 
