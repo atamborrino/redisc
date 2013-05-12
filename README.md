@@ -24,14 +24,14 @@ That's it. You can see below what are the possible exceptions that can come into
 val futureMsgToPrint = futureValue map { "We got this value: " + _ } recover {
   // all possible exception are listed below
   case RedisNull => "No value was associated with the key"
-  case RedisError(err) => "Ouch, we got this Redis error: " + err
+  case RedisError(err) => "We got this Redis error: " + err
   case ConnectionEnded(hostname, port) => "The connection with " + hostname + " " + port + "has ended."
   case BufferFull => "You reached the 200 MB buffer of redisc. I think there had been a problem."
   case _ => "Oh oh, unexpected exception, it is very probably a bug in redisc..."
 }
 
 val anotherFutureMsg = futureStatus map {
-  case "OK" => "The key-value has been correctly set" // "OK" is the Redis OK status
+  case "OK" => "The key-value has been correctly set" // "OK" is the Redis status "OK"
 } recover {
   case RedisNull => "The set operation has not been performed because the key already exists (NX option)"
   case _ => "RedisError or ConnectionEnded or BufferFull..."
@@ -46,10 +46,12 @@ local Ivy repository).
 For usage in combination with Play2.0, you have to use a Play2.0 version compiled against Akka 2.2, until Akka 2.2 integration is pushed into mainstream, you can find a version at: https://github.com/gideondk/Play2.0.
 
 ## API
-Refer to the Redisc class in the Scala doc located here.
+Refer to the Redisc class in the Scala doc located here. 
+Note that Redisc API always follows the [Redis command API](http://redis.io/commands) (for example, for every Redis command that results in a nil response (a NULL bulk reply), the resulting future will always be filled with a RedisNull exception).
+Therefore you can know what the resulting Future of a command can contain by looking at the Redis command API itself.
 
 ## Status
-You can see what Redis commands and functionalities are implemented here.
+You can see what Redis commands and functionalities are implemented in the Scala doc.
 
 ###TODO:
 *   More Redis commands

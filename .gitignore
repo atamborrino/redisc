@@ -1,0 +1,8 @@
+target/
+project/project/
+project/target/
+redisc.sublime-project
+redisc.sublime-workspace
+dump.rdb
+.ensime_lucene/
+.ensime

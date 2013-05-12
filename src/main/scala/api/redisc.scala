@@ -16,8 +16,8 @@ import akka.io.Tcp.{ Connected, ConnectionClosed}
 
 class Redisc(hostname: String, port: Int = 6379) {
 
-  val connectionName = (hostname + port.toString) filter { _.toString.matches("[a-zA-Z0-9]") }
-  val redisc = Redisc.system.actorOf(RediscActor(hostname, port), name = connectionName)
+  private val connectionName = (hostname + port.toString) filter { _.toString.matches("[a-zA-Z0-9]") }
+  private val redisc = Redisc.system.actorOf(RediscActor(hostname, port), name = connectionName)
 
   def get(key: String): Future[String] = {
     val p = promise[String]
