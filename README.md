@@ -22,7 +22,7 @@ val futureStatus = client.set("key", "value", nx = true) // Future[String]
 That's it. You can see below what are the possible exceptions that can come into the futures:
 ```scala
 val futureMsgToPrint = futureValue map { "We got this value: " + _ } recover {
-  // all possible exception are listed below
+  // all possible exceptions are listed below
   case RedisNull => "No value was associated with the key"
   case RedisError(err) => "We got this Redis error: " + err
   case ConnectionEnded(hostname, port) => "The connection with " + hostname + " " + port + "has ended."
