@@ -40,7 +40,7 @@ val anotherFutureMsg = futureStatus map {
 
 ## Installation
 No hosted Maven repository for now, so you have to clone this repo and do a ```sbt publish-local``` to publish it in your
-local Ivy repository).
+local Ivy repository.
 
 ### Play Framework
 For usage in combination with Play2.0, you have to use a Play2.0 version compiled against Akka 2.2, until Akka 2.2 integration is pushed into mainstream, you can find a version at: https://github.com/gideondk/Play2.0.
@@ -51,7 +51,7 @@ Note that Redisc API always follows the [Redis command API](http://redis.io/comm
 Therefore you can know what the resulting Future of a command can contain by looking at the Redis command API.
 
 ## Status
-You can see what Redis commands and functionalities are implemented in the Scala doc](http://atamborrino.github.io/redisc/target/scala-2.10/api/#redisc.api.Redisc).
+You can see what Redis commands and functionalities are implemented in the [Scala doc](http://atamborrino.github.io/redisc/target/scala-2.10/api/#redisc.api.Redisc).
 
 ###TODO:
 *   More Redis commands
