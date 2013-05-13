@@ -66,7 +66,7 @@ You can see what Redis commands and functionalities are implemented in the [Scal
 The code is modular and quite simple, so contributors and contributions are very welcome!
 
 ## Performance test
-I set up an instance of Play 2.2 snapshot (upgraded with Akka 2.2-M3) on localhost accessing a Nano Redis instance hosted at RedisToGo. Each HTTP GET request on '/' involves a 'GET key' request on Redis. I used Redisc and then Jedis (main Java Redis client) with a JedisPool (Jedis comes with his own thread-pool when used in multi-threaded environment).
+I set up an instance of Play 2.2 snapshot (upgraded with Akka 2.2-M3) on localhost accessing a Nano Redis instance hosted at [RedisToGo](http://redistogo.com/). Each HTTP GET request on '/' involves a 'GET key' request on Redis. I used Redisc and then Jedis (main Java Redis client) with a JedisPool (Jedis comes with his own thread-pool when used in multi-threaded environment).
 
 ```ab -n 5000 -c 20 localhost:9000/``` was served 2.4x faster (requests/s) with Redisc than with Jedis.
 
@@ -75,6 +75,6 @@ This software is licensed under the Apache 2 license, quoted below.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
-```http://www.apache.org/licenses/LICENSE-2.0```
+http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
