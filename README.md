@@ -41,6 +41,10 @@ val anotherFutureMsg = futureStatus map {
 ## Installation
 No hosted Maven repository for now, so you have to clone this repo and do a ```sbt publish-local``` to publish it in your
 local Ivy repository.
+Then add to your dependency:
+```
+libraryDependencies += "com.github.atamborrino" %% "redisc" % "0.1-SNAPSHOT"
+```
 
 ### Play Framework
 For usage in combination with Play2.0, you have to use a Play2.0 version compiled against Akka 2.2, until Akka 2.2 integration is pushed into mainstream, you can find a version at: https://github.com/gideondk/Play2.0.
@@ -66,3 +70,11 @@ I set up an instance of Play 2.2 snapshot (upgraded with Akka 2.2-M3) on localho
 
 ```ab -n 5000 -c 20 localhost:9000/``` was served 2.4x faster (requests/s) with Redisc than with Jedis.
 
+## License
+This software is licensed under the Apache 2 license, quoted below.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+```http://www.apache.org/licenses/LICENSE-2.0```
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
