@@ -41,7 +41,7 @@ val anotherFutureMsg = futureStatus map {
 ## Installation
 No hosted Maven repository for now, so you have to clone this repo and do a ```sbt publish-local``` to publish it in your
 local Ivy repository.
-Then add to your dependency:
+Then add to your dependencies:
 ```
 libraryDependencies += "com.github.atamborrino" %% "redisc" % "0.1-SNAPSHOT"
 ```
@@ -63,7 +63,7 @@ You can see what Redis commands and functionalities are implemented in the [Scal
 *   Master-slave replication support
 *   Publish-subscribe
 
-The code is modular and quite simple, so contributors and contributions are very welcomed!
+The code is modular and quite simple, so contributors and contributions are very welcome!
 
 ## Performance test
 I set up an instance of Play 2.2 snapshot (upgraded with Akka 2.2-M3) on localhost accessing a Nano Redis instance hosted at RedisToGo. Each HTTP GET request on '/' involves a 'GET key' request on Redis. I used Redisc and then Jedis (main Java Redis client) with a JedisPool (Jedis comes with his own thread-pool when used in multi-threaded environment).
