@@ -1,6 +1,6 @@
 # Redisc
 
-Redisc is a simple non-blocking Redis client for Scala based on new Akka IO 2.2. Redisc is:
+Redisc is a non-blocking Redis client for Scala based on new Akka IO 2.2. Redisc is:
 *  simple and high-performance
 *  fully non-blocking
 *  type-safe
