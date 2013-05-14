@@ -34,7 +34,6 @@ val anotherFutureMsg = futureStatus map {
   case "OK" => "The key-value has been correctly set" // "OK" is the Redis status reply "OK"
 } recover {
   case RedisNull => "The set operation has not been performed because the key already exists (NX option)"
-  case _ => "RedisError or ConnectionEnded or BufferFull..."
 }
 ```
 
