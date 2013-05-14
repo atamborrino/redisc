@@ -1,6 +1,6 @@
 # Redisc
 
-Redisc is a non-blocking Redis client based on new Akka IO 2.2. Redisc is:
+Redisc is a simple non-blocking Redis client for Scala based on new Akka IO 2.2. Redisc is:
 *  simple and high-performance
 *  fully non-blocking
 *  type-safe
@@ -46,7 +46,7 @@ libraryDependencies += "com.github.atamborrino" %% "redisc" % "0.1-SNAPSHOT"
 ```
 
 ### Play Framework
-For usage in combination with Play2.0, you have to use a Play2.0 version compiled against Akka 2.2, until Akka 2.2 integration is pushed into mainstream, you can find a version at: https://github.com/gideondk/Play2.0.
+For usage in combination with Play2.0, you have to use a Play2.0 version compiled against Akka 2.2, until Akka 2.2 integration is pushed into mainstream, you can find a version at: https://github.com/gideondk/Play20
 
 ## API
 Refer to the Redisc class in the [Scala doc](http://atamborrino.github.io/redisc/target/scala-2.10/api/#redisc.api.Redisc). 
