@@ -60,7 +60,6 @@ You can see what Redis commands and functionalities are implemented in the [Scal
 
 ###TODO:
 *   More Redis commands
-*   Pipelining
 *   Master-slave replication support
 *   Publish-subscribe
 
