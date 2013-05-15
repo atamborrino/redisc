@@ -49,6 +49,8 @@ libraryDependencies += "com.github.atamborrino" %% "redisc" % "0.1-SNAPSHOT"
 For usage in combination with Play2.0, you have to use a Play2.0 version compiled against Akka 2.2, until Akka 2.2 integration is pushed into mainstream, you can find a version at: https://github.com/gideondk/Play20
 
 ## API
+Redisc is for now very simple and support only a few commands.
+
 Refer to the Redisc class in the [Scala doc](http://atamborrino.github.io/redisc/target/scala-2.10/api/#redisc.api.Redisc). 
 Note that Redisc API always follows the [Redis command API](http://redis.io/commands) (for example, for every Redis command that results in a nil response (a NULL bulk reply), the resulting future will always be filled with a RedisNull exception).
 Therefore you can know what the resulting Future of a command can contain by looking at the Redis command API.
