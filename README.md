@@ -26,7 +26,7 @@ val futureMsgToPrint = futureValue map { "We got this value: " + _ } recover {
   case RedisNull => "No value was associated with the key"
   case RedisError(err) => "We got this Redis error: " + err
   case ConnectionEnded(hostname, port) => "The connection with " + hostname + " " + port + "has ended."
-  case BufferFull => "The 200 MB buffer of redisc is full of pending requests. I think there had been a problem."
+  case BufferFull => "The 200 MB buffer of redisc is full of not yet sent requests. I think there had been a problem."
   case _ => "Oh oh, unexpected exception, it is very probably a bug in redisc..."
 }
 
