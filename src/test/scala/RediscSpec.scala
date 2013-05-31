@@ -14,6 +14,12 @@ class RedisSpec extends FeatureSpec with GivenWhenThen {
   given("a Redisc client connected to a localhost Redis")
   val client = Redisc("127.0.0.1", 6379)
 
+  feature("AUTH") {
+    scenario("auth to redis server") {
+      assert(Await.result(client.auth("foo"), timeout) === "OK")
+    }
+  }
+
   feature("SET and GET") {
 
     scenario("set a key value pair and then get it") {
@@ -34,12 +40,17 @@ class RedisSpec extends FeatureSpec with GivenWhenThen {
       }
     }
 
-    scenario("set a key with EX ") {
-      assert(Await.result(client.set("key", "foo", ex = Some(1)), timeout) === "OK")
+    scenario("set a key with PX ") {
+      assert(Await.result(client.set("keypx", "foo", px = Some(10)), timeout) === "OK")
+      Thread.sleep(20)
+      intercept[RedisNull.type] {
+        Await.result(client.get("keypx"), timeout)
+      }
     }
 
   }
 
-  and("we close the client")
+  and("close the connection")
   client.close()
+
 }

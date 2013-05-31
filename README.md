@@ -4,7 +4,7 @@ Redisc is a non-blocking Redis client for Scala based on new Akka IO 2.2. Redisc
 *  simple and high-performance
 *  fully non-blocking
 *  type-safe
-*  for now minimal, as only get / set (with options) / auth are supported
+*  for now minimal, as only GET / SET (with options) / AUTH are supported
 
 Example:
 ```scala
@@ -49,7 +49,7 @@ libraryDependencies += "com.github.atamborrino" %% "redisc" % "0.1-SNAPSHOT"
 For usage in combination with Play2.0, you have to use a Play2.0 version compiled against Akka 2.2, until Akka 2.2 integration is pushed into mainstream, you can find a version at: https://github.com/gideondk/Play20
 
 ## Status
-Redisc is for now minimal and supports only get / set (with options) / auth commands.
+Redisc is for now minimal and supports only GET / SET (with options) / AUTH commands.
 
 ###TODO:
 *   More Redis commands
