@@ -59,10 +59,10 @@ Redisc is for now minimal and supports only get / set (with options) / auth comm
 ## API
 Refer to the Redisc class in the [Scala doc](http://atamborrino.github.io/redisc/target/scala-2.10/api/#redisc.api.Redisc).
 
-Note that Redisc API always follows the [Redis command API](http://redis.io/commands) (for example, for every Redis command that results in a nil response (a NULL bulk reply), the resulting future will always be filled with a RedisNull exception).
-Therefore you can know what the resulting Future of a command can contain by looking at the Redis command API.
-
-
+Note that Redisc API always follows the [Redis command API](http://redis.io/commands). For example, for every Redis command that
+returns a Status reply, the resulting future will always be a Future[String] containing the status message (for instance the Redis status reply "+OK" will result in a Future[String] containing "OK").  
+Another example: for every Redis command that results in a nil response (a Redis NULL Bulk reply), the resulting future will always be filled with a RedisNull exception.  
+Therefore you can know what the resulting Future of a command can contain by looking directly at the [Redis command API](http://redis.io/commands).
 
 ## Performance test
 I set up an instance of Play 2.2 snapshot (upgraded with Akka 2.2-M3) on localhost accessing a Nano Redis instance hosted at [RedisToGo](http://redistogo.com/). Each HTTP GET request on '/' involves a 'GET key' request on Redis. I used Redisc and then Jedis (main Java Redis client) with a JedisPool (Jedis comes with his own thread-pool when used in multi-threaded environment).
