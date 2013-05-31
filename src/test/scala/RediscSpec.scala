@@ -35,7 +35,7 @@ class RedisSpec extends FeatureSpec with GivenWhenThen {
     }
 
     scenario("set a key with EX ") {
-      assert(Await.result(client.set("key", "foo", ex = 1), timeout) === "OK")
+      assert(Await.result(client.set("key", "foo", ex = Some(1)), timeout) === "OK")
     }
 
   }

@@ -25,12 +25,12 @@ class Redisc(hostname: String, port: Int = 6379) {
     p.future.mapTo[String]
   }
   
-  def set(key: String, value: String, ex: Int = -1, px: Int = -1, nx: Boolean = false, xx: Boolean = false)
+  def set(key: String, value: String, ex: Option[Int] = None, px: Option[Int] = None, nx: Boolean = false, xx: Boolean = false)
   : Future[String] = {
     val p = promise[String]
     var args = IndexedSeq("SET", key, value)
-    if (ex != -1) args ++= IndexedSeq("EX", ex.toString)
-    if (px != -1) args ++= IndexedSeq("PX", px.toString)
+    if (ex.isDefined) args ++= IndexedSeq("EX", ex.get.toString)
+    if (px.isDefined) args ++= IndexedSeq("PX", px.get.toString)
     if (nx) args :+= "NX"
     if (xx) args :+= "XX"
     redisc ! RedisRequest(RedisMessage("*", args), p)
