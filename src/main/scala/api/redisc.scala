@@ -29,8 +29,8 @@ class Redisc(hostname: String, port: Int = 6379) {
   : Future[String] = {
     val p = promise[String]
     var args = IndexedSeq("SET", key, value)
-    if (ex.isDefined) args ++= IndexedSeq("EX", ex.get.toString)
-    if (px.isDefined) args ++= IndexedSeq("PX", px.get.toString)
+    ex foreach { t => args ++= IndexedSeq("EX", t.toString) }
+    px foreach { t => args ++= IndexedSeq("PX", t.toString) }
     if (nx) args :+= "NX"
     if (xx) args :+= "XX"
     redisc ! RedisRequest(RedisMessage("*", args), p)
