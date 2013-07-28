@@ -29,7 +29,7 @@ class BufferedTcpClient(remote: InetSocketAddress, listener: ActorRef,
   import Tcp._
   import context.system
 
-  case object Ack
+  case object Ack extends Event
  
   IO(Tcp) ! Connect(remote)
  
